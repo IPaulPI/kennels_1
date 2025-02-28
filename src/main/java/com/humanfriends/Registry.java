@@ -1,5 +1,6 @@
 package com.humanfriends;
 
+import java.util.Comparator;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,17 +24,43 @@ class Registry {
         return "Animal not found.";
     }
 
-    public void trainAnimal(String name, String command) {
+    public boolean trainAnimal(String name, String command) {
         for (Animal animal : animals) {
-            if (animal.name.equals(name)) {
+            if (animal.getName().equalsIgnoreCase(name)) {
                 animal.addCommand(command);
-                return;
+                return true;
             }
         }
+	return false;
     }
+
+    public void showAnimals() {
+        for (Animal animal : animals) {
+            System.out.println(animal.getInfo());
+        }
+    }
+
+    public List<Animal> getAnimals() {
+        return animals;
+    }
+
+    public Animal findAnimalByName(String name) {
+        for (Animal animal : animals) {
+            if (animal.name.equals(name)) {
+                return animal;
+            }
+        }
+        return null;
+    }
+
+    public int getAnimalCount() {
+        return animals.size();
+    }
+
 
     public List<Animal> listAnimalsByBirthDate() {
         animals.sort(Comparator.comparing(a -> a.birthDate));
         return animals;
     }
 }
+

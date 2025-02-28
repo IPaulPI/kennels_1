@@ -1,10 +1,13 @@
 package com.humanfriends;
 
+import java.time.LocalDate;
+
 class Donkey extends PackAnimals {
-    public Donkey(String name, Date birthDate) {
+    public Donkey(String name, LocalDate birthDate) {
         super(name, birthDate);
     }
-    public String bray() {
-        return "Donkey is braying!";
+
+    public String carryLoad() {
+        return "Donkey is carrying load!";
     }
 }
