@@ -1,14 +1,14 @@
 package com.humanfriends;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
+// Базовый класс Animal
 abstract class Animal {
-    protected String name;          // Имя животного
-    protected String birthDate;     // Дата рождения
-    protected List<String> commands; // Список команд
+    protected String name;
+    protected Date birthDate;
+    protected List<String> commands;
 
-    public Animal(String name, String birthDate) {
+    public Animal(String name, Date birthDate) {
         this.name = name;
         this.birthDate = birthDate;
         this.commands = new ArrayList<>();
@@ -18,11 +18,11 @@ abstract class Animal {
         commands.add(command);
     }
 
-    public String getCommands() {
-        return commands.isEmpty() ? "Нет команд" : String.join(", ", commands);
+    public List<String> getCommands() {
+        return commands;
     }
 
     public String getInfo() {
-        return name + " (род. " + birthDate + ") — команды: " + getCommands();
+        return "Name: " + name + ", Birth Date: " + birthDate + ", Commands: " + commands;
     }
 }

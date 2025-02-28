@@ -1,7 +1,10 @@
 package com.humanfriends;
 
-class Dog extends Animal {
-    public Dog(String name, String birthDate) {
+class Dog extends Pets {
+    public Dog(String name, Date birthDate) {
         super(name, birthDate);
+    }
+    public String bark() {
+        return "Woof!";
     }
 }

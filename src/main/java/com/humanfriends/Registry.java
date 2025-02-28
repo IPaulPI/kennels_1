@@ -4,38 +4,36 @@ import java.util.ArrayList;
 import java.util.List;
 
 class Registry {
-    private List<Animal> animals = new ArrayList<>();
-    private static int animalCount = 0;
+    private List<Animal> animals;
+
+    public Registry() {
+        this.animals = new ArrayList<>();
+    }
 
     public void addAnimal(Animal animal) {
         animals.add(animal);
-        animalCount++;
     }
 
-    public void showAnimals() {
-        if (animals.isEmpty()) {
-            System.out.println("Реестр пуст.");
-            return;
-        }
+    public String getAnimalInfo(String name) {
         for (Animal animal : animals) {
-            System.out.println(animal.getInfo());
-        }
-    }
-
-    public static int getAnimalCount() {
-        return animalCount;
-    }
-
-    public Animal findAnimalByName(String name) {
-        for (Animal animal : animals) {
-            if (animal.name.equalsIgnoreCase(name)) {
-                return animal;
+            if (animal.name.equals(name)) {
+                return animal.getInfo();
             }
         }
-        return null;
+        return "Animal not found.";
     }
 
-    public List<Animal> getAnimals() {
+    public void trainAnimal(String name, String command) {
+        for (Animal animal : animals) {
+            if (animal.name.equals(name)) {
+                animal.addCommand(command);
+                return;
+            }
+        }
+    }
+
+    public List<Animal> listAnimalsByBirthDate() {
+        animals.sort(Comparator.comparing(a -> a.birthDate));
         return animals;
     }
 }
