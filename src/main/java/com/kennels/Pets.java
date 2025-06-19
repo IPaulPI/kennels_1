@@ -1,9 +1,8 @@
-package com.humanfriends;
+package com.kennels;
 
 import java.time.LocalDate;
 
-// Домашние животные
-abstract class Pets extends Animal {
+public abstract class Pets extends Animal {
     public Pets(String name, LocalDate birthDate) {
         super(name, birthDate);
     }

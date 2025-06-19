@@ -1,12 +1,14 @@
-package com.humanfriends;
+package com.kennels;
 
 import java.time.LocalDate;
 
-class Hamster extends Pets {
+public class Hamster extends Pets {
     public Hamster(String name, LocalDate birthDate) {
         super(name, birthDate);
     }
-    public String roll() {
-        return "Hamster is rolling!";
+
+    @Override
+    public String getType() {
+        return "Hamster";
     }
 }
