@@ -1,5 +1,6 @@
 package com.kennels;
 
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.List;

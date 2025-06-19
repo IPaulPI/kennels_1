@@ -8,7 +8,7 @@ import java.util.List;
 public class DatabaseHandler {
     private static final String URL = "jdbc:mysql://localhost:3306/HumanFriends";
     private static final String USER = "kennel_user";
-    private static final String PASSWORD = "securepassword";
+    private static final String PASSWORD = "password";
 
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(URL, USER, PASSWORD);
