@@ -1,0 +1,84 @@
+@startuml KennelsClassDiagram
+
+' Основные классы
+class Animal {
+  -id: int
+  -name: String
+  -birthDate: LocalDate
+  -commands: List<String>
+  +addCommand(command: String): void
+  +getCommands(): List<String>
+  +getType(): String
+  __abstract methods__
+  +getType(): String
+}
+
+class Pets {
+  __extends Animal__
+}
+
+class PackAnimals {
+  __extends Animal__
+}
+
+' Конкретные классы животных
+class Dog {
+  +getType(): String
+}
+
+class Cat {
+  +getType(): String
+}
+
+class Hamster {
+  +getType(): String
+}
+
+class Horse {
+  +getType(): String
+}
+
+class Camel {
+  +getType(): String
+}
+
+class Donkey {
+  +getType(): String
+}
+
+' Класс для работы с БД
+class DatabaseHandler {
+  -URL: String
+  -USER: String
+  -PASSWORD: String
+  +getConnection(): Connection
+  +initializeDatabase(): void
+  +saveAnimal(animal: Animal): void
+  +getAllAnimals(): List<Animal>
+  +updateAnimalCommands(id: int, commands: List<String>): void
+}
+
+' Главный класс приложения
+class Main {
+  -scanner: Scanner
+  +main(args: String[]): void
+  -showMainMenu(): void
+  -addNewAnimal(): void
+  -showAnimalCommands(): void
+  -trainAnimal(): void
+}
+
+' Связи между классами
+Animal <|-- Pets
+Animal <|-- PackAnimals
+Pets <|-- Dog
+Pets <|-- Cat
+Pets <|-- Hamster
+PackAnimals <|-- Horse
+PackAnimals <|-- Camel
+PackAnimals <|-- Donkey
+
+Main --> DatabaseHandler
+DatabaseHandler --> Animal
+
+@enduml
